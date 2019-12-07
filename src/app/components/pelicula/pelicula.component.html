@@ -1,0 +1,28 @@
+<div class="container main-container" *ngIf="pelicula">
+  <div class="row">
+    <div class="col-md-4">
+      <img [src]="pelicula|peliculaImagen:true" [alt]="pelicula.original_title" class="img-thumbnail img-fluid">
+    </div>
+    <div class="col-md-8">
+      <h1 class="text-left">{{pelicula.title}}</h1>
+      <strong>{{pelicula.release_date|date:'yyyy'}}</strong>
+      <p>Popularidad:
+          <span class="badge badge-primary"> {{pelicula.popularity|number:".1-1"}} / 100 </span><br>
+          Duración: {{pelicula.runtime}} minutos <br>
+      </p>
+
+      <p class="text-justify">
+        {{pelicula.overview}}
+      </p>
+
+      <button
+            [routerLink]="['/'+volvera,busqueda]"
+            type="button"
+            name="button"
+            class="btn btn-outline-danger">
+            Volver
+      </button>
+
+    </div>
+  </div>
+</div>
